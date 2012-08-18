@@ -264,6 +264,8 @@ bool CDVDDemuxFFmpeg::Open(CDVDInputStream* pInput)
       iformat = m_dllAvFormat.av_find_input_format("mpegts");
     else if( content.compare("multipart/x-mixed-replace") == 0 )
       iformat = m_dllAvFormat.av_find_input_format("mjpeg");
+    else if( content.compare("audio/x-xbmc-pcm") == 0 )
+      iformat = m_dllAvFormat.av_find_input_format("s16le");
   }
 
   // try to abort after 30 seconds
@@ -948,6 +950,10 @@ void CDVDDemuxFFmpeg::AddStream(int iId)
         CDemuxStreamAudioFFmpeg* st = new CDemuxStreamAudioFFmpeg(this, pStream);
         m_streams[iId] = st;
         st->iChannels = pStream->codec->channels;
+        std::string content = m_pInput->GetContent();
+        if( content.compare("audio/x-xbmc-pcm") == 0 )
+            pStream->codec->sample_rate = 88200; // AirTunes audio pcm sample ratd
+
         st->iSampleRate = pStream->codec->sample_rate;
         st->iBlockAlign = pStream->codec->block_align;
         st->iBitRate = pStream->codec->bit_rate;
