@@ -1,0 +1,46 @@
+--- src/socketlib.c	2012-08-18 21:27:48.000000000 +0000
++++ src/socketlib.c	2012-08-18 21:53:01.000000000 +0000
+@@ -107,9 +107,8 @@
+   return tError;
+ }
+ 
+-int setup_server(struct addrinfo *server_addr)
++int setup_server(int tSock, struct addrinfo *server_addr)
+ {
+-  int tSock = common_setup(server_addr);
+   if (tSock < 0)
+   {
+     perror("Error: Could not create server socket");
+@@ -158,17 +157,29 @@
+     sprintf(tService, "%d", pPort); // copies port to string
+     int tFamily = AF_INET;
+     #ifdef AF_INET6
+-    xprintf("Listening on IPv6 Socket\n");
+     tFamily = AF_INET6;
++    #endif
++    int tSock = socket(tFamily, SOCK_STREAM, 0);
++    #ifdef AF_INET6
++    xprintf("Listening on IPv6 Socket\n");
++    if((tSock==-1) && (tFamily == AF_INET6) && (errno == EAFNOSUPPORT))
++    {
++      //Fallback to ipv4
++      __shairport_xprintf("Failed to create ipv6 socket. Trying ipv4");
++      tFamily = AF_INET;
++      tSock = socket(tFamily, SOCK_STREAM, 0);
++    }
++
+     #else
+-    //printf("Listening on IPv4 Socket");
++    xprintf("Listening on IPv4 Socket");
+     #endif
++
+     if(getAddr(NULL, tService, tFamily, SOCK_STREAM, pAddrInfo))
+     {
+       return ERROR; // getAddr prints out error message
+     }
+ 
+-    int tSocketDescriptor = setup_server(*pAddrInfo);
++    int tSocketDescriptor = setup_server(tSock, *pAddrInfo);
+     char tAddr[INET6_ADDRSTRLEN];
+     socklen_t tSize = INET6_ADDRSTRLEN;
+     inet_ntop((*pAddrInfo)->ai_family, (*pAddrInfo)->ai_addr, tAddr, tSize);

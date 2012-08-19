@@ -1,0 +1,11 @@
+--- src/socketlib.h	2011-08-20 22:06:21.000000000 +0000
++++ src/socketlib.h	2012-08-18 21:53:38.000000000 +0000
+@@ -24,7 +24,7 @@
+ #define DEFAULT_UNIX "/unix"
+ 
+ int setup_client(struct addrinfo *server_info);
+-int setup_server(struct addrinfo *server_address);
++int setup_server(int tSock, struct addrinfo *server_address);
+ int setupListenServer(struct addrinfo **pAddrInfo, int pPort);
+ int acceptClient(int pSock, struct addrinfo *server_addr);
+ void delay(long pMillisecs, struct timeval *pRes);
