@@ -599,6 +599,13 @@ case $use_platform in
      use_armvfp="yes"
      use_hardcoded_tables="yes"
      use_alsa="no"
+     use_gles="yes"
+     use_gl="no"
+     use_optical_drive="no"
+     use_joystick="no"
+     use_libbluray="no"
+     use_dvdcss="no"
+     use_crystalhd="no"
      USE_TEXTUREPACKER_NATIVE_ROOT="$TEXTUREPACKER_NATIVE_ROOT"
      ARCH="arm"
      AC_SUBST(ARCH_DEFINES, "-DTARGET_POSIX -DTARGET_LINUX -D_LINUX -D_ARMEL -DTARGET_RASPBERRY_PI")
@@ -607,8 +614,8 @@ case $use_platform in
      USE_OMXLIB=1; AC_DEFINE([HAVE_OMXLIB],[1],["Define to 1 if OMX libs is enabled"])
      CFLAGS="$CFLAGS -Wno-psabi"
      CXXFLAGS="$CXXFLAGS -Wno-psabi"
-     INCLUDES+="-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads"
-     LDFLAGS+="-L/opt/vc/lib"
+     INCLUDES+=" -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads"
+     LDFLAGS+=" -L/opt/vc/lib"
      ;;
   *)
      use_alsa="yes"
