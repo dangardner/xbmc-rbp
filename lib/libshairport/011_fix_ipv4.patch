@@ -24,7 +24,7 @@
 +    if((tSock==-1) && (tFamily == AF_INET6) && (errno == EAFNOSUPPORT))
 +    {
 +      //Fallback to ipv4
-+      __shairport_xprintf("Failed to create ipv6 socket. Trying ipv4");
++      xprintf("Failed to create ipv6 socket. Trying ipv4");
 +      tFamily = AF_INET;
 +      tSock = socket(tFamily, SOCK_STREAM, 0);
 +    }
