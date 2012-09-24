@@ -1,0 +1,69 @@
+From: root <root@raspberrypi.(none)>
+Date: Sat, 22 Sep 2012 01:00:59 +0100
+Subject: RPi build essentials
+
+---
+ lib/libsquish/Makefile.in       |    6 +++---
+ tools/rbp/depends/xbmc/Makefile |    2 +-
+ tools/rbp/setup-sdk.sh          |    4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/lib/libsquish/Makefile.in b/lib/libsquish/Makefile.in
+index 2b4a7ac..a14553a 100644
+--- a/lib/libsquish/Makefile.in
++++ b/lib/libsquish/Makefile.in
+@@ -15,7 +15,7 @@ CXXFLAGS+=-I.
+ ifeq ($(findstring powerpc,$(ARCH)),powerpc)
+   CXXFLAGS+=-DSQUISH_USE_ALTIVEC=1 -maltivec
+ else ifeq ($(findstring x86,$(ARCH)), x86)
+-  CXXFLAGS+=-DSQUISH_USE_SSE=2 -msse2
++  CXXFLAGS+= 
+ endif
+ 
+ LIB=libsquish.a
+@@ -32,9 +32,9 @@ all: $(LIB) $(NATIVE_LIB)
+ # TexturePacker links to libsquish and needs to run on build system, so make a native flavor.
+ $(NATIVE_LIB): $(SRCS)
+ ifeq ($(findstring osx,$(ARCH)),osx)
+-	g++ $(NATIVE_ARCH) -DSQUISH_USE_SSE=2 -msse2 -I. $(SRCS) -dynamiclib -install_name `pwd`/libsquish-native.so -o $@
++	g++ $(NATIVE_ARCH)   -I. $(SRCS) -dynamiclib -install_name `pwd`/libsquish-native.so -o $@
+ else
+-	g++ -DSQUISH_USE_SSE=2 -msse2 -I. $(SRCS) -shared -fPIC -Wl,-soname,`pwd`/libsquish-native.so -o $@
++	g++   -I. $(SRCS) -shared -fPIC -Wl,-soname,`pwd`/libsquish-native.so -o $@
+ endif
+ endif
+ 
+diff --git a/tools/rbp/depends/xbmc/Makefile b/tools/rbp/depends/xbmc/Makefile
+index 34ddd6a..78bbb74 100755
+--- a/tools/rbp/depends/xbmc/Makefile
++++ b/tools/rbp/depends/xbmc/Makefile
+@@ -22,6 +22,6 @@ distclean:
+ 
+ configure:
+ 	cd $(SOURCE); ./bootstrap
+-	cd $(SOURCE); $(CONFIGURE)
++	#cd $(SOURCE); $(CONFIGURE)
+ 	#cd $(SOURCE); make -j $(JOBS)
+ 	#cd $(SOURCE); make install
+diff --git a/tools/rbp/setup-sdk.sh b/tools/rbp/setup-sdk.sh
+index 9da68cb..4a8faed 100755
+--- a/tools/rbp/setup-sdk.sh
++++ b/tools/rbp/setup-sdk.sh
+@@ -2,7 +2,7 @@
+ 
+ SCRIPT_PATH=$(cd `dirname $0` && pwd)
+ 
+-USE_BUILDROOT=1
++USE_BUILDROOT=0
+ 
+ if [ "$USE_BUILDROOT" = "1" ]; then
+   BUILDROOT=/opt/xbmc-bcm/buildroot
+@@ -17,7 +17,7 @@ else
+   SDKSTAGE=/opt/bcm-rootfs
+   XBMCPREFIX=/opt/xbmc-bcm/xbmc-bin
+   TARGETFS=/opt/bcm-rootfs
+-  TOOLCHAIN=/usr/local/bcm-gcc
++  TOOLCHAIN=/usr
+   BUILDROOT=/opt/bcm-rootfs
+ fi
+ 

@@ -1,0 +1,5 @@
+xbmc-rbp (12.0-ALPHA5-git-20120804-1.0) UNRELEASED; urgency=low
+
+  * Initial packaging.
+
+ -- Dan Gardner <dan+rpi@chaotica.org.uk>  Mon, 24 Sep 2012 22:50:55 +0100
