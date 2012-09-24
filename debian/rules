@@ -20,44 +20,44 @@ override_dh_auto_build:
 	$(MAKE) -j$(NUMJOBS)
 
 override_dh_auto_configure:
-#	./bootstrap
-#	./configure \
-#		--prefix=/usr \
-#		--build=arm-linux-gnueabihf \
-#		--host=arm-linux-gnueabihf \
-#		--localstatedir=/var/lib \
-#		--with-platform=raspberry-pi \
-#		--disable-gl \
-#		--enable-gles \
-#		--disable-x11 \
-#		--disable-sdl \
-#		--enable-ccache \
-#		--enable-optimizations \
-#		--enable-external-libraries \
-#		--disable-goom \
-#		--disable-hal \
-#		--disable-pulse \
-#		--disable-vaapi \
-#		--disable-vdpau \
-#		--disable-xrandr \
-#		--enable-airplay \
-#		--enable-airtunes \
-#		--disable-alsa \
-#		--enable-avahi \
-#		--disable-libbluray \
-#		--enable-dvdcss \
-#		--disable-debug \
-#		--disable-joystick \
-#		--enable-mid \
-#		--disable-nfs \
-#		--disable-profiling \
-#		--disable-projectm \
-#		--disable-rsxs \
-#		--disable-rtmp \
-#		--disable-vaapi \
-#		--disable-vdadecoder \
-#		--disable-external-ffmpeg \
-#		--disable-optical-drive \
-#		--disable-libcec \
-#		--disable-mysql \
-#		--disable-samba
+	./bootstrap
+	./configure \
+		--prefix=/usr \
+		--build=arm-linux-gnueabihf \
+		--host=arm-linux-gnueabihf \
+		--localstatedir=/var/lib \
+		--with-platform=raspberry-pi \
+		--disable-gl \
+		--enable-gles \
+		--disable-x11 \
+		--disable-sdl \
+		--enable-ccache \
+		--enable-optimizations \
+		--enable-external-libraries \
+		--disable-goom \
+		--disable-hal \
+		--disable-pulse \
+		--disable-vaapi \
+		--disable-vdpau \
+		--disable-xrandr \
+		--enable-airplay \
+		--enable-airtunes \
+		--disable-alsa \
+		--enable-avahi \
+		--disable-libbluray \
+		--enable-dvdcss \
+		--disable-debug \
+		--disable-joystick \
+		--enable-mid \
+		--disable-nfs \
+		--disable-profiling \
+		--disable-projectm \
+		--disable-rsxs \
+		--disable-rtmp \
+		--disable-vaapi \
+		--disable-vdadecoder \
+		--disable-external-ffmpeg \
+		--disable-optical-drive \
+		--disable-libcec \
+		--disable-mysql \
+		--disable-samba
