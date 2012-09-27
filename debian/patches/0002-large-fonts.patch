@@ -1,0 +1,120 @@
+--- a/addons/skin.confluence/720p/Font.xml
++++ b/addons/skin.confluence/720p/Font.xml
+@@ -288,4 +288,99 @@
+ 			<style>bold</style>
+ 		</font>
+ 	</fontset>
+-</fonts>
+\ No newline at end of file
++
++	<fontset id="Large" idloc="31393" unicode="true"> 
++	<!-- Normal Fonts -->
++	 	<font>
++			<name>font10</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>18</size>
++		</font>
++	 	<font>
++			<name>font12</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>22</size>
++		</font>
++	 	<font>
++			<name>font13</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>24</size>
++		</font>
++	 	<font>
++			<name>font14</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>26</size>
++		</font>
++	 	<font>
++			<name>font16</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>28</size>
++		</font>
++	 	<font>
++			<name>font30</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>32</size>
++		</font>
++	 	<font>
++			<name>fontContextMenu</name>
++			<filename>Roboto-Regular.ttf</filename>
++			<size>22</size>
++		</font>
++
++
++	<!-- Title Fonts -->
++	 	<font>
++			<name>font10_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>16</size>
++		</font>
++	 	<font>
++			<name>font12_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>22</size>
++		</font>
++	 	<font>
++			<name>font13_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>24</size>
++		</font>
++	 	<font>
++			<name>font24_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>26</size>
++		</font>
++	 	<font>
++			<name>font28_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>28</size>
++		</font>
++	 	<font>
++			<name>font30_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>30</size>
++		</font>
++	 	<font>
++			<name>font35_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>35</size>
++		</font>
++	 	<font>
++			<name>font45caps_title</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>45</size>
++		</font>
++
++	 	<font>
++			<name>font_MainMenu</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<style>uppercase</style>
++			<size>40</size>
++		</font>
++	 	<font>
++			<name>WeatherTemp</name>
++			<filename>Roboto-Bold.ttf</filename>
++			<size>80</size>
++		</font>
++	</fontset>
++
++</fonts>
+--- a/addons/skin.confluence/language/English/strings.po
++++ b/addons/skin.confluence/language/English/strings.po
+@@ -475,8 +475,12 @@
+ msgid "Arial based"
+ msgstr ""
+ 
++msgctxt "#31393"
++msgid "Large fonts"
++msgstr ""
++
+ #Description Labels
+-#empty strings from id 31393 to 31399
++#empty strings from id 31394 to 31399
+ 
+ msgctxt "#31400"
+ msgid "[B]CONFIGURE APPEARANCE SETTINGS[/B][CR][CR]Change the skin · Set language and region · Change file listing options[CR]Set up a screensaver"
