@@ -529,7 +529,7 @@ lib/cmyth/Makefile
 
 /xbmc/cores/dvdplayer/Makefile
 
-xbmc/cores/omxplayer/Makefile
+/xbmc/cores/omxplayer/Makefile
 
 # /lib/ffmpeg/
 /lib/ffmpeg/config.h
@@ -1230,4 +1230,9 @@ xbmc/cores/omxplayer/Makefile
 /xbmc/win32/git_rev.h
 
 # Debian packaging
-debian/*.debhelper.log
+/debian/files
+/debian/xbmc-rbp.debhelper.log
+/debian/xbmc-rbp.postinst.debhelper
+/debian/xbmc-rbp.postrm.debhelper
+/debian/xbmc-rbp.substvars
+/debian/xbmc-rbp/
