@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/dangardner/xbmc-rbp
 
 Package: xbmc-rbp
 Architecture: any
-Depends: libraspberrypi0 (>= 1.20120918-1), ${shlibs:Depends}, ${misc:Depends}
+Depends: libraspberrypi0 (>= 1.20120918-1), libcurl3-gnutls:armhf (>= 7.26.0-1), ${shlibs:Depends}, ${misc:Depends}
 Description: XBMC for the Raspberry Pi
  XBMC is an award-winning free and open source (GPL) software media player and
  entertainment hub for digital media. XBMC is available for multiple platforms.
