@@ -4,7 +4,7 @@
 export DH_VERBOSE=1
 
 NUMJOBS := 1
-MIN_RAM := 223016
+MIN_RAM := 204800
 
 ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
 	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
@@ -49,7 +49,7 @@ override_dh_auto_configure:
 		--disable-alsa \
 		--enable-avahi \
 		--disable-libbluray \
-		--enable-dvdcss \
+		--disable-dvdcss \
 		--disable-debug \
 		--disable-joystick \
 		--enable-mid \
